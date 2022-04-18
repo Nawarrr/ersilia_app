@@ -1,0 +1,96 @@
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet.css" />
+<div class="boxBorder">
+<h1 class="title">
+Model Card - Natural Product Fingerprint
+</h1>
+<div class="columns">
+<div class="column">
+<h2 id="model-details"> Model Details</h2>
+<ul>
+<li>Developed by University of Münster, Germany, 2021.</li>
+<li>Multilayer Perceptron and Autoencoder.</li>
+<li>Trained to extract Natural Product Score and Natural Product
+Fingerprint.</li>
+</ul>
+<h2 id="intended-use"> Intended Use</h2>
+<ul>
+<li>Intended to encode implicit natural product information while
+keeping enough information on the chemical space of those natural
+products.</li>
+<li>Not intended to do fingerprint-based virtual screening (FBVS).</li>
+</ul>
+<h2 id="factors"> Factors</h2>
+<ul>
+<li>Fingerprints are built using fragments frequently found in natural
+products.</li>
+</ul>
+<h2 id="metrics"> Metrics</h2>
+<ul>
+<li>Area under the curve (AUC), measures area under receiver operating
+characteristics (ROC) curve, it ranges from 0 to 1 while 1 is the
+perfect classification.</li>
+<li>Enrichment Factor, measures how good active molecules are identified
+based on similarity.</li>
+</ul>
+<h2 id="recommendation">  Recommendation</h2>
+<ul>
+<li>Improvement could be achieved by per-training the neural networks on
+completely unrelated data, the focus here is on correctly predicting
+descriptors and only the final stage models are trained to identify
+natural products.</li>
+</ul>
+</div><div class="column">
+<h2 id="training-data"> Training Data</h2>
+<ul>
+<li>A dataset consisting of natural products and synthetic molecules was
+made, the Coconut database [2] was updated and used, synthetic molecules
+were in Zinc [3] “in-stock” library.</li>
+<li>Synthetic compounds had to have similarity of over 0.5 to assure the
+performance of the neural network.</li>
+</ul>
+<h2 id="validation-data">Validation Data</h2>
+<ul>
+<li>Datasets were collected by Seo et al. [4].</li>
+<li>First dataset to differentiate between synthetic and natural
+products.</li>
+<li>Second dataset to differentiate between active and inactive natural
+products</li>
+<li>Third dataset is used to combine the use of the other two, to
+differentiate between both synthetic and natural and active and
+inactive.</li>
+</ul>
+<h2 id="quantative-analysis"> Quantative Analysis</h2>
+<figure>
+<img src="Quantative_Analysis_1.png"
+alt="Fig. 1. Distribution of Natural Product Likeness" />
+<figcaption aria-hidden="true">Fig. 1. Distribution of Natural Product
+Likeness</figcaption>
+</figure>
+<figure>
+<img src="Quantative_Anaysis_2.png"
+alt="Fig. 2. Similarity of the NP_AUX and Baseline versus the ECFP4 before and after training" />
+<figcaption aria-hidden="true">Fig. 2. Similarity of the NP_AUX and
+Baseline versus the ECFP4 before and after training</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always; break-after: page;">
+
+</div>
+<h2 id="references">References</h2>
+<p>[1] Menke, J., Massa, J., &amp; Koch, O. (2021). Natural product
+scores and fingerprints extracted from artificial neural networks.
+Computational and Structural Biotechnology Journal.
+https://doi.org/10.26434/chemrxiv.14347073</p>
+<p>[2] M. Sorokina, P. Merseburger, K. Rajan, M.A. Yirik, C. Steinbeck
+<strong><em>COCONUT online: Collection of Open Natural Products
+database</em></strong> J Cheminformatics, 13 (2021), pp. 1-13</p>
+<p>[3] T. Sterling, J.J. Irwin <strong><em>ZINC 15–ligand discovery for
+everyone</em></strong> J Chem Inform Modeling, 55 (2015),
+pp. 2324-2337</p>
+<p>[4] M. Seo, H.K. Shin, Y. Myung, S. Hwang, K.T. No
+<strong><em>Development of Natural Compound Molecular Fingerprint
+(NC-MFP) with the Dictionary of Natural Products (DNP) for natural
+product-based drug development</em></strong> J Cheminformatics, 12
+(2020), p. 6</p>

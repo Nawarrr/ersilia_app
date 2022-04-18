@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+
+  /* ---
+   * fixDefault.css - A fix to default Pandoc's CSS to be 
+   *    correctly displayed on a VS Code preview window,
+   *    and nicely printed on [digital] paper
+   *
+   * Ramon Solano <ramon.solano@gmail.com>
+   *
+   * usage: 
+   *    pandoc ... -H fixDefault.css ...
+   *
+   * V 1.0, Jul/2021
+   * --- 
+   */
+
+  body {
+  	font-family: inherit;
+  	font-size: inherit;
+  	color: inherit;
+  }
+
+  @media print {
+  	html,body {
+  		font-size: 10pt;
+  	}
+  	@page  {  
+  		size: auto;
+  	} 
+  }
+
+  </style>
+  <style>
+
+  /* ---
+   * article.css - A beautiful css to complement Pandoc's own
+   *
+   * Provides:
+   *    - Article-style title and headers
+   *    - Images and tables centered
+   *    - New `<aside>` env (right side)
+   *
+   * Ramon Solano <ramon.solano@gmail.com>
+   *
+   * usage: 
+   *    pandoc ... -H article.css ...
+   * 
+   * V1.0, Jul/2021
+   * ---
+   */
+
+  body {
+  	max-width: 40em;
+     word-wrap: break-word; 
+  }
+
+  header p {
+  	text-align: center;
+  }
+  header p.subtitle {
+  	font-size: 1.2em;
+  	line-height: 1.1em;
+  	margin: 0.5em 2em 2em;
+  /* 
+  	 margin-top: 0.5em;
+  	 margin-bottom: 2em;
+   */
+  }
+  header p.author {
+  	font-size: 1.1em;
+  	line-height: 0.5em;
+  	font-variant-caps: small-caps;
+  }
+  header p.date {
+  	font-size: 0.95em;
+  	margin: 3em;
+  }
+
+  header h1 {
+  	 line-height: 1em;
+  	 margin-bottom: 0em;
+  }
+  /* abstract header */
+  h3:first-child, #abstract {
+  	font-size: 1.2em;
+  	text-align: center;
+  	margin: 0.5em ;
+  }
+
+  /* abstract paragraph */
+  h3:first-child + p, #abstract + p {
+  	font-size: 0.9em;
+  	margin: 0em 4em;
+  	margin-bottom: 3em;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.3em;
+  }
+  h3 {
+    font-size: 1.1em;
+    font-style: italic;
+  }
+  h1, h2, h3, h4 {
+    margin-top: 0.95em;
+    margin-bottom: 0.80em;
+  }
+
+  /* Justify and hyphenate all paragraphs */
+  p {
+    text-align: justify;
+  }
+      
+  /* center tables */
+  table {
+  	display: table;
+  	width: auto;
+  	margin-left: auto;
+  	margin-right: auto;
+  }
+  table caption {
+  	font-size: 0.95em;
+  }
+
+  /* centered figures  */
+  figure {
+    text-align: center;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+  figcaption {
+    font-size: 0.95em;
+  }
+
+  /* lists: increase left margins */
+  ul, ol {
+    padding: 0 0 0 3em;
+  }    
+
+  /* new style: objects (figures, text) right side */
+  aside {
+    font-size: 0.9em;
+    width: 33%;
+    padding: 0 0 0 .8em;
+    margin: 1em 0 1em 1em;
+    float: right;
+  }
+  aside > *:first-child {
+    margin-top: 0;
+  }
+  aside > *:last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    font-size: 0.87em;
+    line-height: 1.2em;
+    border: 1px solid #cccccc;
+    background: #f5f2f0;
+    padding: .7em;   
+  }
+
+  :not(pre) > code[class*="sourceCode"],
+  pre[class*="sourceCode"] {
+    background: #f5f2f0;
+  }
+
+  code {
+    color: #92000c;
+    font-size: .9em;
+  }
+
+  pre code {
+    color: unset;
+  }
+
+  a {
+    color: #0050a0;
+  }
+
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<link rel="stylesheet" type="text/css" media="all" href="stylesheet.css" />
+<div class="boxBorder">
+<h1 class="title">
+Model Card - Natural Product Fingerprint
+</h1>
+<div class="columns">
+<div class="column">
+<h2 id="model-details"> Model Details</h2>
+<ul>
+<li>Developed by University of Münster, Germany, 2021.</li>
+<li>Multilayer Perceptron and Autoencoder.</li>
+<li>Trained to extract Natural Product Score and Natural Product
+Fingerprint.</li>
+</ul>
+<h2 id="intended-use"> Intended Use</h2>
+<ul>
+<li>Intended to encode implicit natural product information while
+keeping enough information on the chemical space of those natural
+products.</li>
+<li>Not intended to do fingerprint-based virtual screening (FBVS).</li>
+</ul>
+<h2 id="factors"> Factors</h2>
+<ul>
+<li>Fingerprints are built using fragments frequently found in natural
+products.</li>
+</ul>
+<h2 id="metrics"> Metrics</h2>
+<ul>
+<li>Area under the curve (AUC), measures area under receiver operating
+characteristics (ROC) curve, it ranges from 0 to 1 while 1 is the
+perfect classification.</li>
+<li>Enrichment Factor, measures how good active molecules are identified
+based on similarity.</li>
+</ul>
+<h2 id="recommendation">  Recommendation</h2>
+<ul>
+<li>Improvement could be achieved by per-training the neural networks on
+completely unrelated data, the focus here is on correctly predicting
+descriptors and only the final stage models are trained to identify
+natural products.</li>
+</ul>
+</div><div class="column">
+<h2 id="training-data"> Training Data</h2>
+<ul>
+<li>A dataset consisting of natural products and synthetic molecules was
+made, the Coconut database [2] was updated and used, synthetic molecules
+were in Zinc [3] “in-stock” library.</li>
+<li>Synthetic compounds had to have similarity of over 0.5 to assure the
+performance of the neural network.</li>
+</ul>
+<h2 id="validation-data">Validation Data</h2>
+<ul>
+<li>Datasets were collected by Seo et al. [4].</li>
+<li>First dataset to differentiate between synthetic and natural
+products.</li>
+<li>Second dataset to differentiate between active and inactive natural
+products</li>
+<li>Third dataset is used to combine the use of the other two, to
+differentiate between both synthetic and natural and active and
+inactive.</li>
+</ul>
+<h2 id="quantative-analysis"> Quantative Analysis</h2>
+<figure>
+<img src="Quantative_Analysis_1.png"
+alt="Fig. 1. Distribution of Natural Product Likeness" />
+<figcaption aria-hidden="true">Fig. 1. Distribution of Natural Product
+Likeness</figcaption>
+</figure>
+<figure>
+<img src="Quantative_Anaysis_2.png"
+alt="Fig. 2. Similarity of the NP_AUX and Baseline versus the ECFP4 before and after training" />
+<figcaption aria-hidden="true">Fig. 2. Similarity of the NP_AUX and
+Baseline versus the ECFP4 before and after training</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div style="page-break-after: always; break-after: page;">
+
+</div>
+<h2 id="references">References</h2>
+<p>[1] Menke, J., Massa, J., &amp; Koch, O. (2021). Natural product
+scores and fingerprints extracted from artificial neural networks.
+Computational and Structural Biotechnology Journal.
+https://doi.org/10.26434/chemrxiv.14347073</p>
+<p>[2] M. Sorokina, P. Merseburger, K. Rajan, M.A. Yirik, C. Steinbeck
+<strong><em>COCONUT online: Collection of Open Natural Products
+database</em></strong> J Cheminformatics, 13 (2021), pp. 1-13</p>
+<p>[3] T. Sterling, J.J. Irwin <strong><em>ZINC 15–ligand discovery for
+everyone</em></strong> J Chem Inform Modeling, 55 (2015),
+pp. 2324-2337</p>
+<p>[4] M. Seo, H.K. Shin, Y. Myung, S. Hwang, K.T. No
+<strong><em>Development of Natural Compound Molecular Fingerprint
+(NC-MFP) with the Dictionary of Natural Products (DNP) for natural
+product-based drug development</em></strong> J Cheminformatics, 12
+(2020), p. 6</p>
+</body>
+</html>
